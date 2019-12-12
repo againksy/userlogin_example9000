@@ -1,0 +1,345 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: lime;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.registrationTitle {
+  margin-bottom: 0;
+  font-family: Panton-Regular;
+  font-size: 30px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #253140;
+}
+.description {
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  color: #5D6978;
+}
+
+.description span {
+  color: #7EB336;
+  font-family: Ubuntu-Bold;
+}
+
+.hint {
+  text-align: center;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ACB5BD;
+  margin-bottom: 16px;
+}
+
+.input {
+  border: none;
+  box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+  background: #F2F4F6;
+  box-sizing: border-box;
+  border-radius: 40px;
+  width: 100%;
+  padding: 13px;
+  padding-left: 30px;
+  font-size: 13px;
+  line-height: 20px;
+  color: #5D6978;
+  display: inline-block;
+}
+
+.input.wrong {
+  border: 2px solid #F23D18;
+  box-shadow: none;
+}
+
+.password.input {
+  margin-bottom: 11px;
+}
+
+label span {
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #ACB5BD;
+  margin-bottom: 5px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #36bed9;
+}
+
+.button {
+  background: #36BED9;
+  border-radius: 40px;
+  width: 100%;
+  padding: 12px;
+  border-width: 0;
+  font-family: Panton-Regular;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.button.login {
+  background: #7EB336;
+}
+
+.rules-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 20px;
+  color: #5D6978;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 16px;
+}
+
+/* Hide the browser's default checkbox */
+.rules-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 23px;
+  width: 23px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.rules-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.rules-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.rules-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.rules-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+a.alternative-link {
+  text-decoration: none;
+  border-bottom: 1px dashed #36bed9;
+  padding-bottom: 2px;
+}
+.footer {
+  align-items: center;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.footer div {
+  color: #5D6978;
+}
+
+.close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  cursor: pointer;
+  right: 40px;
+}
+.close:after {
+  content: '';
+  height: 20px;
+  border-left: 2px solid #5D6978;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 28px;
+}
+
+.close:before {
+  content: '';
+  height: 20px;
+  border-left: 2px solid #5D6978;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 28px;
+}
+input:focus {
+  outline: none;
+}
+.field-error {
+  font-size: 10px;
+  line-height: 11px;
+  color: #F23D18;
+  margin-bottom: 7px;
+  margin-top: 8px;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: initial;
+  bottom: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px 56px;
+  margin: 0px auto;
+  max-width: 280px;
+  max-height: 534px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width : 426px){
+  form {
+    width: 335px;
+  }
+}
+@media (max-width : 425px){
+  .modal-content {
+    position: initial;
+    right: initial;
+    bottom: 40px;
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    outline: none;
+    margin: 0px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transform: initial;
+    border: none;
+    border-radius: 0;
+    max-height: initial;
+    height: 100%;
+    max-width: initial;
+    padding: 20px 0;
+  }
+  form {
+    width: 320px;
+  }
+  .input {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+.restorePass {
+  text-align: right;
+}
+.loginfooter {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  margin-top: 26px;
+}
+@media (max-width : 320px){
+  form {
+    width: 290px;
+  }
+}
+
+@-webkit-keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+  10%, 50%, 90% {
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0)
+  }
+  30%, 70% {
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0)
+  }
+}
+
+@keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+  10%, 50%, 90% {
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0)
+  }
+  30%, 70% {
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0)
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
+}
+
+.animated.shake {
+  -webkit-animation-duration: .25s;
+  animation-duration: .25s
+}

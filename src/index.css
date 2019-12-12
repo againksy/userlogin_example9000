@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Panton-Regular";
+  font-weight: normal;
+  font-style: normal;
+  src: local('Panton-Regular'), url(./smm_fonts/Panton-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: "Ubuntu-Regular";
+  font-weight: normal;
+  font-style: normal;
+  src: local('Ubuntu-Regular'), url(./smm_fonts/Ubuntu_regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: "Ubuntu-Bold";
+  font-weight: normal;
+  font-style: normal;
+  src: local('Ubuntu-Bold'), url(./smm_fonts/Ubuntu_Bold.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Ubuntu-Regular;
+  font-style: normal;
+  font-weight: normal;
+}
