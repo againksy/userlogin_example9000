@@ -8,8 +8,7 @@
 }
 
 .App-header {
-  background-color: lime;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -147,7 +146,7 @@ a {
 
 /* When the checkbox is checked, add a blue background */
 .rules-container input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #36BED9;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -164,8 +163,8 @@ a {
 
 /* Style the checkmark/indicator */
 .rules-container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 7px;
+  top: 3px;
   width: 5px;
   height: 10px;
   border: solid white;
@@ -175,6 +174,7 @@ a {
   transform: rotate(45deg);
 }
 a.alternative-link {
+  cursor: pointer;
   text-decoration: none;
   border-bottom: 1px dashed #36bed9;
   padding-bottom: 2px;
@@ -227,39 +227,51 @@ input:focus {
   margin-top: 8px;
 }
 
+.modal-overlay {
+  overflow-y: scroll;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.66);
+  z-index: 10000;
+}
 .modal-content {
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   right: initial;
-  bottom: 40px;
   border: 1px solid rgb(204, 204, 204);
   background: rgb(255, 255, 255);
-  overflow: auto;
   border-radius: 4px;
   outline: none;
   padding: 20px 56px;
   margin: 0px auto;
   max-width: 280px;
-  max-height: 534px;
+  max-height: 595px;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
+}
+.mc_login {
+  max-height: 450px;
 }
 
-@media (min-width : 426px){
+
+@media (min-width : 481px){
   form {
     width: 335px;
   }
 }
-@media (max-width : 425px){
+@media (max-width : 480px){
   .modal-content {
     position: initial;
     right: initial;
-    bottom: 40px;
     background: rgb(255, 255, 255);
-    overflow: auto;
     outline: none;
     margin: 0px auto;
     width: 100%;
@@ -283,6 +295,14 @@ input:focus {
     padding-bottom: 8px;
   }
 }
+@media  (max-height: 1050px) {
+  .modal-content {
+    left: 10%;
+    right: 10%;
+    top: 1%;
+    transform: initial;
+  }
+}
 .restorePass {
   text-align: right;
 }
@@ -294,7 +314,7 @@ input:focus {
 }
 @media (max-width : 320px){
   form {
-    width: 290px;
+    width: 260px;
   }
 }
 
@@ -342,4 +362,47 @@ input:focus {
 .animated.shake {
   -webkit-animation-duration: .25s;
   animation-duration: .25s
+}
+
+.register {
+  float: right;
+  width: 130px;
+  margin: 1px 0 0 38px;
+  display: inline-block;
+  clear: both;
+}
+.login-icon {
+  width: 16px;
+  height: 16px;
+  margin: 1px 7px 0 0;
+  background-image: url(./login.svg);
+  vertical-align: top;
+  display: inline-block;
+}
+.btn-login {
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 17px;
+  line-height: 20px;
+  border-radius: 20px;
+  width: 130px;
+  vertical-align: top;
+  display: inline-block;
+  font-family: Panton-Regular;
+  font-size: 17px;
+  background: #7EB336;
+  border-radius: 40px;
+}
+.reg-link {
+  font-size: 13px;
+}
+.head-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }

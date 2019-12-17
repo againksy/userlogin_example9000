@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Modal from 'react-modal';
 
-import logo from './logo.svg';
+import logo from './login.svg';
 import './App.css';
 
 const style = {
@@ -29,11 +29,15 @@ class App extends Component {
 
   }
 
-  toggleLoginMode=()=>{
-    this.setState(({isLogin})=>({isLogin: !isLogin}))
+  toggleLoginMode = () => {
+    this.setState(({isLogin}) => ({isLogin: !isLogin}))
   }
-  openModal() {
-    this.setState({ modalIsOpen: true });
+  openModal(isLogin) {
+    const st = { isLogin: false, modalIsOpen: true, }
+    if(isLogin){
+      st.isLogin = true
+    }
+    this.setState(st);
   }
 
   closeModal() {
@@ -48,26 +52,26 @@ class App extends Component {
     e.preventDefault();
     const { isLogin, email, password, acceptRules, } = this.state
     let errState = {wiggleInput: true,}
-    let submitErr
+    let submitErr = {}
     if(!acceptRules){
-      submitErr = { acceptRules: 'Примите условия Соглашения' }
+      submitErr.acceptRules = 'Примите условия Соглашения'
     }
     if(!(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,32}$/.test(password))){
-      submitErr = { password: 'Обязательно наличие цифр и символов'}
+      submitErr.password = 'Обязательно наличие цифр и символов'
     }
     if(!password || typeof password !== 'string' || password.length < 6){
-      submitErr = { password: 'Введите не менее 6 символов'}
+      submitErr.password = 'Введите не менее 6 символов'
     }
     if(emailMock.filter(e=>e===email).length>0){
-      submitErr = { email: 'Такой E-mail уже зарегистрирован'}
+      submitErr.email = 'Такой E-mail уже зарегистрирован'
     }
     if(!emailIsValid(email)){
-      submitErr = { email: 'Введите корректный E-mail' }
+      submitErr.email = 'Введите корректный E-mail'
     }
     if(!email || typeof email !== 'string'){
-      submitErr = { email: 'Введите E-mail'}
+      submitErr.email = 'Введите E-mail'
     }
-    if(submitErr){
+    if(Object.keys(submitErr)){
       setTimeout(()=>this.setState({wiggleInput: false}), 2000)
       return this.setState({...errState, submitErr})
     }
@@ -100,27 +104,42 @@ class App extends Component {
       passInputCl += ' wrong'
       if(wiggleInput){ passInputCl += ' animated shake' }
     }
+    let contentModalCl = 'modal-content'
+    if(isLogin){
+      contentModalCl += ' mc_login'
+    }
     return (
       <div className="App">
         <div className="App-header">
-          <button onClick={()=>this.openModal()}>Войти</button>
+          <div className="head-container">
+            <div className="register">
+              <a href="#popup-login" className="btn-login" onClick={() => this.openModal(true)}>
+                <span className="login-icon"></span><span>Войти</span>
+              </a>
+              <a title="Зарегистрироваться" className='alternative-link reg-link'
+                onClick={() => this.openModal()}
+              >Зарегистрироваться</a>
+            </div>
+          </div>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={()=>this.closeModal()}
           contentLabel="Example Modal"
           style={style}
-          className={'modal-content'}
+          className={contentModalCl}
+          overlayClassName={'modal-overlay'}
         >
           <div>
             <span className="close" onClick={()=>this.closeModal()}></span>
           </div>
-          <p className="registrationTitle">Регистрация</p>
-          <p className="description">
-            Регистрация занимает 30 секунд.<br/> После регистрации вы получите<br/> <span>7 дней бесплатного доступа.</span>
-          </p>
+          {!isLogin && <Fragment> <p className="registrationTitle">Регистрация</p>
+              <p className="description">
+                Регистрация занимает 30 секунд.<br/> После регистрации вы получите<br/> <span>7 дней бесплатного доступа.</span>
+              </p> </Fragment>}
+          {isLogin && <p className="registrationTitle">Личный кабинет</p>}
           <div className={'email-container'}>
-            <form onSubmit={e => this.handleOnSubmit(e)}>
+            <form noValidate onSubmit={e => this.handleOnSubmit(e)}>
               <label>
                 <span>Email</span>
                 <input
