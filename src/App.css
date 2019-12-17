@@ -271,12 +271,12 @@ input:focus {
 }
 
 
-@media (min-width : 481px){
+@media (min-width : 601px){
   form {
     width: 335px;
   }
 }
-@media (max-width : 480px){
+@media (max-width : 600px){
   .modal-content {
     position: initial;
     right: initial;
@@ -321,7 +321,7 @@ input:focus {
   flex-direction: row;
   margin-top: 26px;
 }
-@media (max-width : 320px){
+@media (max-width : 350px){
   form {
     width: 260px;
   }

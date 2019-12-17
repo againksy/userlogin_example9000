@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   toggleLoginMode = () => {
-    this.setState(({isLogin}) => ({isLogin: !isLogin}))
+    this.setState(({isLogin}) => ({submitErr: {}, isLogin: !isLogin}))
   }
   openModal(isLogin) {
     const st = { isLogin: false, modalIsOpen: true, }
@@ -53,7 +53,7 @@ class App extends Component {
     const { isLogin, email, password, acceptRules, } = this.state
     let errState = {wiggleInput: true,}
     let submitErr = {}
-    if(!acceptRules){
+    if(!acceptRules && !isLogin){
       submitErr.acceptRules = 'Примите условия Соглашения'
     }
     if(!(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,32}$/.test(password))){
